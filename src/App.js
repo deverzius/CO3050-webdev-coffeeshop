@@ -24,14 +24,16 @@ function App() {
     <div className="App">
       <Header />
       <Router>
-        <Route path='/' element={<Home />} />
-        <Route path='/admin' element={<Home />} />
-        <Route path='/contact' element={<Home />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/member' element={<Home />} />
-        <Route path='/menu' element={<Home />} />
-        <Route path='/news' element={<Home />} />
-        <Route path='/order' element={<Home />} />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/admin' element={<Admin />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/member' element={<Member />} />
+          <Route path='/menu' element={<Menu />} />
+          <Route path='/news' element={<News />} />
+          <Route path='/order' element={<Order />} />
+        </Routes>
       </Router>
       <Footer />
     </div>

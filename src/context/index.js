@@ -4,7 +4,9 @@ const AppContext = createContext();
 
 function AppProvider({ children }) {
 	return (
-		<AppContext.Provider>
+		<AppContext.Provider
+			value={{}}
+		>
 			{children}
 		</AppContext.Provider>
 	)
