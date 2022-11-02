@@ -9,22 +9,20 @@ import {
   Menu,
   News,
   Order
-} from './components'
+} from './components';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from 'react-router-dom';
+import { useAppContext } from './context';
 
 
 function App() {
   return (
+
     <div className="App">
       <Header />
-
-      <Body />
-
-      <Footer />
       <Router>
         <Route path='/' element={<Home />} />
         <Route path='/admin' element={<Home />} />
@@ -35,6 +33,7 @@ function App() {
         <Route path='/news' element={<Home />} />
         <Route path='/order' element={<Home />} />
       </Router>
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import './index.css'
 
-function Body() {
+function Footer() {
 	return (
 		<>
 
@@ -8,4 +8,4 @@ function Body() {
 	)
 }
 
-export default Body;
+export default Footer;

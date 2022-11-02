@@ -1,5 +1,12 @@
+:root {
+  --primary-green-color-1: #01b636;
+  --primary-green-color-2: #3bd16f;
+  --primary-green-color-3: #74e39a;
+  --primary-gray-color-1: #e3e3e3;
+  --primary-gray-color-2: #989898;
+}
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +14,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
