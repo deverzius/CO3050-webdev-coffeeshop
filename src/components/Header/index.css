@@ -1,0 +1,74 @@
+#header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	background-color: var(--primary-green-color-1);
+	background-image: linear-gradient(var(--primary-green-color-1), var(--primary-green-color-2));
+	padding: 0 120px;
+}
+
+#header .brand-name {
+	flex: 1;
+	font-weight: bold;
+	font-size: 30px;
+	color: white;
+	line-height: 60px;
+	margin: 0;
+}
+
+#header .navbar-item {
+	display: block;
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 20px 0;
+}
+
+#header .navbar {
+	flex: 1;
+}
+
+/* (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+	#header .navbar-item {
+		display: none;
+	}
+
+	#header .brand-name {
+		flex: 10;
+	}
+}
+
+/* (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+	#header {
+		height: 60px;
+	}
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+	#header {
+		padding: 0 10px;
+	}
+
+	#header .navbar {
+		flex: 2;
+	}
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {}
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {}
+
+
+#header .user {
+	background-color: #fff;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}

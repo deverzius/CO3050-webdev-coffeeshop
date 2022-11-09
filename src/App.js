@@ -16,26 +16,28 @@ import {
   Route,
 } from 'react-router-dom';
 import { useAppContext } from './context';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
   return (
-
     <div className="App">
-      <Header />
       <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/admin' element={<Admin />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/member' element={<Member />} />
-          <Route path='/menu' element={<Menu />} />
-          <Route path='/news' element={<News />} />
-          <Route path='/order' element={<Order />} />
-        </Routes>
+        <Header />
+        <Body>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/admin' element={<Admin />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/member' element={<Member />} />
+            <Route path='/menu' element={<Menu />} />
+            <Route path='/news' element={<News />} />
+            <Route path='/order' element={<Order />} />
+          </Routes>
+        </Body>
+        <Footer />
       </Router>
-      <Footer />
     </div>
   );
 }

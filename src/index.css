@@ -23,3 +23,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.primary-hr {
+  border-top: 5px solid var(--primary-green-color-1);
+  opacity: 1;
+}

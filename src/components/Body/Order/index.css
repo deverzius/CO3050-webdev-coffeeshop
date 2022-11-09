@@ -1,0 +1,39 @@
+.order .drink-image img {
+	background-clip: contain;
+	width: 100%;
+	margin-left: -12px;
+	margin-bottom: 20px;
+}
+
+.order .drink-info {
+	margin-right: -12px;
+}
+
+.order .drink-price {
+	margin-bottom: 20px;
+	color: var(--primary-green-color-1);
+}
+
+.order .sub-title {
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 10px;
+	padding: 0;
+}
+
+.order .small-title {
+	font-weight: bold;
+	font-size: 14px;
+	padding: 0;
+}
+
+.order .btn-order {
+	margin-top: 40px;
+}
+
+.order .par {
+	padding: 0;
+	text-align: justify;
+	margin-bottom: 20px;
+	margin-top: 5px;
+}
