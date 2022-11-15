@@ -5,6 +5,7 @@ function Home() {
 		<>
 			<h1>My Home Page</h1>
 			<Link to='/order'>order</Link>
+			<Link to='/admin'>admin</Link>
 		</>
 	)
 }

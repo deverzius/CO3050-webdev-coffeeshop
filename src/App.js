@@ -17,6 +17,8 @@ import {
 } from 'react-router-dom';
 import { useAppContext } from './context';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 function App() {
@@ -27,7 +29,7 @@ function App() {
         <Body>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/admin' element={<Admin />} />
+            <Route path='/admin/*' element={<Admin />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/home' element={<Home />} />
             <Route path='/member' element={<Member />} />
