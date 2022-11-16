@@ -20,7 +20,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Header } from './components/Header';
 import './App.css'
 import { HomePage } from './pages/HomePage';
-import { ShopPage } from './pages/ShopPage';
 import { Defaultlayout } from './pages/DefaultLayout';
 
 
