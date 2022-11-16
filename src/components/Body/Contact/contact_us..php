@@ -27,7 +27,7 @@
                     <li class="infor">Điện thoại: 028 3864 7123</li>
                     <li class="infor">Email: coffeeBK@gmail.com</li>
                     <li class="infor">WebSite: <a href= "#">https://coffeeBK.com</a></li></li>
-                    <li class="infor">Facebook: <a href= "#">https://www.facebook.com/coffeeBK</a></li></li>
+                    <li class="infor">Facebook: <a href= "#">https://www.facebook.com/coffeeBK</a></li>
                 </ul>
             </div>
             <div class="right-content">
