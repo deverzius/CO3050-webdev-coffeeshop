@@ -26,7 +26,7 @@
                     <li class="infor">Địa chỉ: 268 Lý Thường Kiệt, Phường 14, Quận 10, TP. HCM</li>
                     <li class="infor">Điện thoại: 028 3864 7123</li>
                     <li class="infor">Email: coffeeBK@gmail.com</li>
-                    <li class="infor">WebSite: <a href= "#">https://coffeeBK.com</a></li></li>
+                    <li class="infor">WebSite: <a href= "#">https://coffeeBK.com</a></li>
                     <li class="infor">Facebook: <a href= "#">https://www.facebook.com/coffeeBK</a></li>
                 </ul>
             </div>
