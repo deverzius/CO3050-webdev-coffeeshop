@@ -1,0 +1,108 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.carousel {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+}
+
+.carousel > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+}
+
+.slide img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+}
+
+.active {
+    opacity: 1;
+}
+
+.carousel-btn {
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.carousel-btn:hover{
+    background-color: rgb(230, 230, 230);
+    color: black;
+}
+
+.next {
+    top: 44vh;
+    right: 30px;
+    color: white;
+}
+
+.prev {
+    top: 44vh;
+    left: 30px;
+}
+
+.slide-content {
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+    right: 14%;
+}
+
+.slide-content{
+    width: 40% !important;
+}
+
+.home-banner-1{
+    position: absolute;
+    width: 400px;
+    top: 52%;
+    left: 11%;
+
+}
+
+.home-banner__content h1 {
+    font-size: 50px;
+    color: black;
+}
+
+.home-banner__content p {
+    color: black;
+}
+
+.home-banner__btn {
+    background-color: #01B636;
+    border: none;
+    color: white;
+    width: 60%;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.banner2 {
+    width: 45% !important;
+}
+
+.slide-banner {
+    right: 12%;
+}
+
+.home-wrapper {
+    padding-bottom: 100px;
+}
