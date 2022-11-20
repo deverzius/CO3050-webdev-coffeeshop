@@ -29,7 +29,7 @@ export const Header = () => {
             <div className='header-container'>
                 <div className='container row'>
                     <div className='col-5 header-logo'>
-                        BK Coffee
+                        <a className='header-logo-txt' href="/">BK Coffee</a>
                     </div>
                     <div className='col-7 header-menu'>
                         <div className='col-2'><a href="/">Trang chủ</a></div>
