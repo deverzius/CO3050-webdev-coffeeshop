@@ -28,3 +28,22 @@ code {
   border-top: 5px solid var(--primary-green-color-1);
   opacity: 1;
 }
+
+.btn-outline-success {
+  color: var(--primary-green-color-1) !important;
+  border-color: var(--primary-green-color-1) !important;
+}
+
+.btn-outline-success:hover {
+  color: #fff !important;
+  background-color: var(--primary-green-color-1) !important;
+}
+
+.btn-success {
+  background-color: var(--primary-green-color-1) !important;
+  border: none !important;
+}
+
+.btn-success:hover {
+  opacity: 0.8;
+}

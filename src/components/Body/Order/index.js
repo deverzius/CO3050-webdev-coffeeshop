@@ -56,7 +56,7 @@ function Order() {
 							</div>
 						</div>
 
-						<button type='button' className='btn btn-order btn-success mx-2 w-100'>
+						<button type='button' className='btn btn-order btn-success w-50'>
 							Đặt mua
 						</button>
 					</div>
