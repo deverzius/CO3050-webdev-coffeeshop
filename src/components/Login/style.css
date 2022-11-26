@@ -24,14 +24,14 @@
     border: none;
     margin: 8px 0;
     /* background-color: #0487d9; */
-    background-color: #04b2d9;
+    background-color: #f0912c;
     color: white;
     border-radius: 10px;
     transition: background-color 0.5s ease;
 }
 
 .login-btn__btn:hover {
-    background-color: #0487d9;
+    background-color: #e57905;
 
 }
 
