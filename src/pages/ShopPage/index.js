@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import './style.css'
-import { ShopGrid } from "../../pages/ShopGrid"
+import { ShopGrid } from "../ShopGrid"
 import { getAllType, getAllBrand } from "../../ultil"
 import { products } from "../../data"
 
-export const Defaultlayout = () => {
+export const ShopPage = () => {
 
     const [brand, setBrand] = useState()
     const [type, setType] = useState()

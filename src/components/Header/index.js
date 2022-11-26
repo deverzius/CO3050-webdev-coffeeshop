@@ -29,13 +29,14 @@ export const Header = () => {
             <div className='header-container'>
                 <div className='container row'>
                     <div className='col-5 header-logo'>
-                        <a className='header-logo-txt' href="/">BK Coffee</a>
+                        <a className='header-logo-txt' href="/home">BK Coffee</a>
                     </div>
                     <div className='col-7 header-menu'>
-                        <div className='col-2'><a href="/">Trang chủ</a></div>
+                        <div className='col-2'><a href="/home">Trang chủ</a></div>
                         <div className='col-2'><a href="/shop">Thực đơn</a></div>
                         <div className='col-2'>Tin tức</div>
                         <div className='col-2'>Liên hệ</div>
+                        <div className='col-2'><a href="/cart">Giỏ hàng</a></div>
                         <div className='col-2'>
                             <i className="fa-solid fa-user"></i>
                         </div>

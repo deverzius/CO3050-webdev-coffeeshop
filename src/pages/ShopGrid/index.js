@@ -11,7 +11,6 @@ export const ShopGrid = (props) => {
     const handleChange = (e) => {
         setSortBy(e.target.value)
     }
-    console.log(props)
     return (
         <div className='shopgrid-wrapper'>
             <div className='default-content-filter'>

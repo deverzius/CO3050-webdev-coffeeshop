@@ -20,28 +20,34 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Header } from './components/Header';
 import './App.css'
 import { HomePage } from './pages/HomePage';
-import { Defaultlayout } from './pages/DefaultLayout';
-
+import { ShopPage } from './pages/ShopPage';
+import { publicRoutes } from './routes';
+import { Fragment } from 'react';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
         <Body>
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/admin/*' element={<Admin />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/member' element={<Member />} />
-            <Route path='/menu' element={<Menu />} />
-            <Route path='/news' element={<News />} />
-            <Route path='/order' element={<Order />} />
-            <Route path='/shop' element={<Defaultlayout />} />
+            {
+              publicRoutes.map((routes, id) => {
+                const Page = routes.component;
+                const Layout = routes.layout ? routes.layout : Fragment;
+                return (
+                  <Route 
+                    path={routes.path} 
+                    element={
+                      <Layout>
+                        <Page/>
+                      </Layout>
+                    }
+
+                  />
+                )})
+            }
           </Routes>
         </Body>
-        <Footer />
       </Router>
     </div>
   );

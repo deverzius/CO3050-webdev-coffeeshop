@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { formatter } from "../../ultil"
+import { formatCurrency } from "../../ultil"
 import './style.css'
 import { Link } from "react-router-dom"
 
@@ -31,14 +31,14 @@ export const ProductGrid = (props) => {
                     <p className="product-detail__line4">Availability: 599 In Stock</p>
                     <div className="product-detail__line3">
                         <p className="product-detail__line3-current">
-                            {formatter.format(props.product.price)}
+                            {formatCurrency(props.product.price)}
                         </p>    
-                        <p className="product-detail__line3-discount">{formatter.format(props.product.price)}</p>
+                        <p className="product-detail__line3-discount">{formatCurrency(props.product.price)}</p>
                     </div>
                     <button className="productgrid-btn">ADD TO CART</button>
                             
                     <div className="productgrid-action">
-                        <Link to={`/shop/${props.product.idproduct}`}><i className="fa-solid fa-magnifying-glass"></i></Link>
+                        <Link to={`/order/${props.product.index}`}><i className="fa-solid fa-magnifying-glass"></i></Link>
                         <Link><i className="fa-regular fa-heart"></i></Link>
                         <Link><i className="fa-solid fa-recycle"></i></Link>
                 </div>

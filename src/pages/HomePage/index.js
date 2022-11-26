@@ -6,7 +6,6 @@ import './style.css'
 
 export const HomePage = () => {
 
-    console.log(products)
 
     return (
         <div className="home-container">

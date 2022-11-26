@@ -1,5 +1,4 @@
 
-
 export const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'VND',
@@ -34,4 +33,15 @@ export const getAllBrand = (data) => {
         type.push(element.brand)
     });
     return [...new Set(type)].sort((a,b) => a.length - b.length)
+}
+
+
+export const calculatePrice = (price, size, toppings) => {
+  const sizeCost = size;
+  let toppingsCost = 0
+  toppings.forEach(i => {
+    toppingsCost += i.price
+  })
+
+  return price + sizeCost + toppingsCost
 }
