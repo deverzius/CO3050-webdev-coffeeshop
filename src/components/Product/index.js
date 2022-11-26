@@ -36,12 +36,6 @@ export const Product = (props) => {
                     <Link><i className="fa-solid fa-recycle"></i></Link>
                 </div>
             </div>
-            <div className={`product-btn ${isEnter}`}>
-                <Link>
-                    <button>ADD TO CART</button>
-                </Link>
-            </div>
-
         </div>
     )
 }
