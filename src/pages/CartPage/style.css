@@ -68,3 +68,20 @@
     border-bottom: 1px solid rgb(222, 222, 222);
     margin-bottom: 20px !important;
 }
+
+@media (max-width: 767.98px) {
+    .product__name {
+        display: none;
+    }
+} 
+
+.checkout {
+    display: flex;
+    justify-content: right;
+    margin-right: 5%;
+}
+
+.checkout button {
+    margin-left: 5%;
+}
+

@@ -1,6 +1,6 @@
 .productgrid-container {
     margin-bottom: 20px;
-    height: 290px;
+    max-height: 290px;
     display: flex;
     align-items: center;
     justify-content: center ;
@@ -34,6 +34,7 @@
     -webkit-line-clamp: 4;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    margin-bottom: 0;
 }
 
 .productgrid-detail-2 {

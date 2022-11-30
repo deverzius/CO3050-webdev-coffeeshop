@@ -33,3 +33,17 @@
     height: 500px;
     flex: 1;
 }
+
+@media (max-width: 767.98px) {
+    .login-wrapper {
+        flex-direction: column;
+    }
+    .left-content {
+        height: 300px;
+        width: 100%;
+    }
+    .right-content {
+        height: auto;
+        flex: 1;
+    }
+} 

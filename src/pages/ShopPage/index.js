@@ -44,7 +44,7 @@ export const ShopPage = () => {
     }
     return (
         <div className="defaultlayout-wrapper row">
-            <div className='col-3'>
+            <div className='col-12 col-sm-12 col-md-12 col-lg-3 '>
                 <div className="default-filter">
                     <span>Products</span>
                     <div className='filter-type'>
@@ -68,7 +68,7 @@ export const ShopPage = () => {
                 </div>
             </div>
         
-            <div className="default-content col-9">
+            <div className="default-content col-12 col-lg-9">
                 <div>
                     <ShopGrid props={ProductFilter(products)}/>
                 </div>

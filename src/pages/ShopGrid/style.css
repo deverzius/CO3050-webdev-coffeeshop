@@ -70,6 +70,12 @@ option {
     font-size: 16px;
     color: #888;
     cursor: pointer;
+
+}
+
+.display-icon {
+    display: flex !important;
+    flex-direction: row !important;
 }
 
 .active {
@@ -79,3 +85,14 @@ option {
 .shopgrid-wrapper {
     margin-top: 100px;
 }
+
+.shop-display {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+@media (max-width: 767.98px) {
+    .grip {
+        display: none;
+    }
+} 

@@ -39,3 +39,9 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 767.98px) {
+    .login-wraper {
+        padding-top: 40px;
+    }
+} 

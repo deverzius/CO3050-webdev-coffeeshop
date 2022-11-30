@@ -14,17 +14,17 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import { useAppContext } from './context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Header } from './components/Header';
 import './App.css'
-import { HomePage } from './pages/HomePage';
-import { ShopPage } from './pages/ShopPage';
 import { publicRoutes } from './routes';
 import { Fragment } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
+  
+
+
   return (
     <div className="App">
       <Router>
@@ -49,6 +49,7 @@ function App() {
           </Routes>
         </Body>
       </Router>
+
     </div>
   );
 }

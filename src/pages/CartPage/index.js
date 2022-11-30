@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import { formatCurrency } from '../../ultil'
 import './style.css'
 
 export const CartPage = () => {
 
-    const tmp = [
+    const [tmp, setTmp] = useState([
         {
             cost: 54_000,
             product: 
@@ -36,7 +37,7 @@ export const CartPage = () => {
                     name: "SoundBox Pro Portable",
                     price: 18_000,
                     discount: 10,
-                    index: 1,
+                    index: 2,
                     type: "tea",
                     brand: "studio design",
                     desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
@@ -52,7 +53,8 @@ export const CartPage = () => {
                 {id: 1, name: 'Đào ngâm', price: 10_000}
             ]
          }
-    ]
+    ])
+
 
     const total = () => {
         let total = 0
@@ -61,30 +63,36 @@ export const CartPage = () => {
         })
         return total
     }
+
+    const handleClick = (id) => {
+        setTmp(tmp.filter(i => i.product.index !== id))
+    }
+
     return (
         <div className='cart-container'>
             <span>cart page</span>
             <div className='cart-wrapper row'>
-                <div className='cart-product col-8'>
+                <div className='cart-product col-12'>
                     <div className='cart-product__item row'>
-                        <div className='product__thumbnail col-2'>
+                        <div className='product__thumbnail col-4 col-md-2'>
                             <strong>Product</strong>
                        
                         </div>
                         <div className='product__name col-5'>
                             <strong>Detail</strong>
                         </div>
-                        <div className='product__quantity col-3'>
+                        <div className='product__quantity col-4 col-md-2'>
                             <strong>Quantity</strong>
                         </div>
-                        <div className='product__price col-2'>{
+                        <div className='product__price col-4 col-md-2'>{
                             <strong>Cost</strong>
                         }</div>
                     </div>
-                    {
+                    {   
+                        tmp.length < 1 ? <p>Empty!</p> :
                         tmp.map((item, index) => (
                             <div className='cart-product__item row' key={index}>
-                                <div className='product__thumbnail col-2'>
+                                <div className='product__thumbnail col-4 col-md-2'>
                                     <img src={item.product.thumbnail}/>
                                 </div>
                                 <div className='product__name col-5'>
@@ -96,20 +104,23 @@ export const CartPage = () => {
                                         ))
                                     }</span>
                                 </div>
-                                <div className='product__quantity col-3'>
+                                <div className='product__quantity col-3 col-md-2'>
                                     <span>{item.quantity}</span>
                                 </div>
-                                <div className='product__price col-2'>{
+                                <div className='product__price col-3 col-md-2'>{
                                     <span>{formatCurrency(item.cost)}</span>
-                                }</div>
+                                }
+                                </div>
+                                
+                                <i className="fa-solid fa-xmark col-1" style={{color: "red"}} onClick={() => handleClick(item.product.index)}></i>
                             </div>
                         ))
                     }
+                <div className={`checkout ${tmp.length < 1 && "hidden"}`}>
+                    <span>Total: {formatCurrency(total())}</span>
+                    <button className='btn btn-primary'>Check out</button>
                 </div>
-                <div className='cart-payment col-4 sticky sticky-top'>
-                    <strong className='cart-brand'>BK Coffee</strong>
-                    <strong><span className='cart-total'>CART TOTAL</span>: {formatCurrency(total())}</strong>
-                    <button>Check out</button>
+
                 </div>
             </div>
         </div>
