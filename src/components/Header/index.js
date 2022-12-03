@@ -1,28 +1,14 @@
 
 
 import React from 'react'
+import { useAppContext } from '../../context'
 import './style.css'
 
 export const Header = () => {
-    return (
-        // <div className='header-wrapper sticky'>
-        //     <div className='header-container'>
-        //         <div className='container row'>
-        //             
-        //             <div className='col-7 header-menu'>
-        //                 <div className='col-2'><a href="/home">Trang chủ</a></div>
-        //                 <div className='col-2'><a href="/shop">Thực đơn</a></div>
-        //                 <div className='col-2'>Tin tức</div>
-        //                 <div className='col-2'>Liên hệ</div>
-        //                 <div className='col-2'><a href="/cart">Giỏ hàng</a></div>
-        //                 <div className='col-2'>
-        //                     <i className="fa-solid fa-user"></i>
-        //                 </div>
+    
+    const user = useAppContext()
 
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
+    return (
         <div className='header-wrapper sticky'>
             <div className='header-container'>
                 <nav className="navbar navbar-expand-lg bg-light ">
@@ -42,7 +28,7 @@ export const Header = () => {
                                     <a className="nav-link" href="/shop">Thực đơn</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Tin tức</a>
+                                    <a className="nav-link" href="/blog">Tin tức</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">Liên hệ</a>
@@ -51,10 +37,10 @@ export const Header = () => {
                                     <a className="nav-link" href="/cart">Giỏ hàng</a>
                                 </li>
                                 <li>
-                                    <div className='col-2 header-user'>
+                                    <a className='col-2 header-user' href='/user'>
                                         <i className="fa-solid fa-user"></i>
-                                        <span>Username</span>
-                                    </div>
+                                        <span>Hello</span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>

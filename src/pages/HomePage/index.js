@@ -1,10 +1,11 @@
 import React from "react"
 import { Product } from "../../components/Product"
-import { products } from "../../data"
+import { Blog, products } from "../../data"
 import banner from '../../assets/imgs/banner.png'
 import banner2 from '../../assets/imgs/banner2.png'
 
 import './style.css'
+import { BlogContainer } from "../../components/Blog"
 
 export const HomePage = () => {
 
@@ -30,7 +31,8 @@ export const HomePage = () => {
                 </button>
             </div>
             <div className="container row holic">
-                <span>Tea Holic</span>
+                <span><a href="/shop">Tea Holic</a></span>
+
                 {
                     [...products].filter(i => i.index < 5).map((item, index) => (
                         <div key={index} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 center">
@@ -40,7 +42,8 @@ export const HomePage = () => {
                 }
             </div>
             <div className="container row holic">
-                <span>Coffee Holic</span>
+                <span><a href="/shop">Coffee Holic</a></span>
+
                 {
                     [...products].filter(i => i.index < 5).map((item, index) => (
 
@@ -50,6 +53,16 @@ export const HomePage = () => {
                     ))
                 }
             </div>  
+            <div className="container holic row blog">
+                <span><a href="/blog">Blog</a></span>
+                {
+                    Blog.slice(0, 3).map((item, index) => (
+                        <div key={index} className="col-sm-12 col-md-6 col-lg-4 center">
+                            <BlogContainer blog = {item}/>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     )
 }

@@ -1,3 +1,6 @@
+import moment from "moment"
+
+
 export const products = [
     {   
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
@@ -233,3 +236,70 @@ export const toppings = [
         price: 20_000
     }
 ]
+
+export const Blog = [
+    {
+        article_id: 1,
+        title: "10 LỢI ÍCH KHÔNG NGỜ CỦA TRÀ HOA HIBISCUS",
+        content: "Với rất nhiều lợi ích vượt trội, trà hoa Hibiscus được nhiều chị em ưu tiên chọn lựa để tăng cường sức khỏe, cải thiện sắc đẹp và giúp tinh thần thêm hứng khởi.",
+        date: moment(),
+        ad_id: 0,
+        image: "https://file.hstatic.net/1000075078/article/pr-cover_41de066c6f654ee9b318dbffe7e5e5f0_master.jpg"
+    },
+
+    {
+        article_id: 2,
+        title: "CÁCH NHẬN BIẾT HƯƠNG VỊ CÀ PHÊ ROBUSTA NGUYÊN CHẤT DỄ DÀNG NHẤT",
+        content: "Cùng Arabica, Robusta cũng là loại cà phê nổi tiếng được sử dụng phổ biến ở Việt Nam và nhiều nước khác trên thế giới. Với nhiều đặc điểm riêng, không quá khó để có thể nhận ra hương vị của loại cà phê trứ danh này.",
+        date: moment(),
+        ad_id: 1,
+        image: "https://file.hstatic.net/1000075078/article/thecoffehouse_ca_phe_01_b4adbd88db6e4ca3b7c2c5934d1a1ed9_master.jpg"
+
+    },    
+    {
+        article_id: 3,
+        title: "CÁCH NHẬN BIẾT HƯƠNG VỊ CÀ PHÊ ROBUSTA NGUYÊN CHẤT DỄ DÀNG NHẤT",
+        content: "Cùng Arabica, Robusta cũng là loại cà phê nổi tiếng được sử dụng phổ biến ở Việt Nam và nhiều nước khác trên thế giới. Với nhiều đặc điểm riêng, không quá khó để có thể nhận ra hương vị của loại cà phê trứ danh này.",
+        date: moment(),
+        ad_id: 1,
+        image: "https://file.hstatic.net/1000075078/article/thecoffehouse_ca_phe_01_b4adbd88db6e4ca3b7c2c5934d1a1ed9_master.jpg"
+
+    },    
+    {
+        article_id: 4,
+        title: "10 LỢI ÍCH KHÔNG NGỜ CỦA TRÀ HOA HIBISCUS",
+        content: "Với rất nhiều lợi ích vượt trội, trà hoa Hibiscus được nhiều chị em ưu tiên chọn lựa để tăng cường sức khỏe, cải thiện sắc đẹp và giúp tinh thần thêm hứng khởi.",
+        date: moment(),
+        ad_id: 0,
+        image: "https://file.hstatic.net/1000075078/article/pr-cover_41de066c6f654ee9b318dbffe7e5e5f0_master.jpg"
+    },
+    {
+        article_id: 5,
+        title: "10 LỢI ÍCH KHÔNG NGỜ CỦA TRÀ HOA HIBISCUS",
+        content: "Với rất nhiều lợi ích vượt trội, trà hoa Hibiscus được nhiều chị em ưu tiên chọn lựa để tăng cường sức khỏe, cải thiện sắc đẹp và giúp tinh thần thêm hứng khởi.",
+        date: moment(),
+        ad_id: 0,
+        image: "https://file.hstatic.net/1000075078/article/pr-cover_41de066c6f654ee9b318dbffe7e5e5f0_master.jpg"
+    },    
+    {
+        article_id: 6,
+        title: "CÁCH NHẬN BIẾT HƯƠNG VỊ CÀ PHÊ ROBUSTA NGUYÊN CHẤT DỄ DÀNG NHẤT",
+        content: "Cùng Arabica, Robusta cũng là loại cà phê nổi tiếng được sử dụng phổ biến ở Việt Nam và nhiều nước khác trên thế giới. Với nhiều đặc điểm riêng, không quá khó để có thể nhận ra hương vị của loại cà phê trứ danh này.",
+        date: moment(),
+        ad_id: 1,
+        image: "https://file.hstatic.net/1000075078/article/thecoffehouse_ca_phe_01_b4adbd88db6e4ca3b7c2c5934d1a1ed9_master.jpg"
+
+    },
+]
+
+
+// CREATE TABLE `user` (
+//     user_id INT NOT NULL AUTO_INCREMENT,
+//     username VARCHAR(100) NOT NULL,
+//     `password` VARCHAR(100) NOT NULL,
+//     `name` VARCHAR(100) NOT NULL,
+//     address VARCHAR(100) NOT NULL,
+//     `role` ENUM('cus', 'ad') NOT NULL,
+//     PRIMARY KEY (user_id)
+// );
+

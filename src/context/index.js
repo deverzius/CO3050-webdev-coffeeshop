@@ -1,11 +1,20 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 const AppContext = createContext();
 
 function AppProvider({ children }) {
+
+	const [customer, setCustomer] = useState({
+		name: "Son"
+	})
+
+	const setUser = (user) => {
+		setCustomer(user)
+	}
+
 	return (
 		<AppContext.Provider
-			value={{}}
+			value={{customer, setUser}}
 		>
 			{children}
 		</AppContext.Provider>

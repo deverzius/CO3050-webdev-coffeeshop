@@ -1,4 +1,4 @@
-.holic span{
+.holic > span{
     font-size: 28px;
     font-weight: 700;
     padding: 12px 0;
@@ -9,8 +9,22 @@
     margin: 38px;
 }
 
+.holic > span a {
+    text-decoration: none;
+    color: black;
+}
+
 .center {
     display: flex;
     justify-content: center;
 
+}
+
+.blog {
+    padding-bottom: 100px;
+    
+}
+
+.pre-btn {
+    color: black !important;
 }

@@ -1,7 +1,7 @@
 .container__item {
 	display: flex;
 	flex-direction: column;
-	padding-top: 60px;
+	/* padding-top: 60px; */
 	padding-bottom: 60px;
 	border-bottom: 1px rgba(0, 0, 0, 0.192) solid;
   }

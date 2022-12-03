@@ -1,7 +1,10 @@
 import { Admin, Contact} from "../components";
 import { DefaultLayout } from "../components/Layout/DefaultLayout";
 import { LoginLayout } from "../components/Layout/LoginLayout";
+import { BlogListPage } from "../pages/BlogListPage";
+import { BlogPage } from "../pages/BlogPage";
 import { CartPage } from "../pages/CartPage";
+import { CustomerPage } from "../pages/CustomerPage";
 import { HomePage } from "../pages/HomePage";
 import { LoginPage } from "../pages/LoginPage";
 import { ProductPage } from "../pages/ProductPage";
@@ -16,6 +19,8 @@ export const publicRoutes = [
     {path: "/shop", component: ShopPage, layout: DefaultLayout},
     {path: '/', component: LoginPage, layout: LoginLayout},
     {path: "/cart", component: CartPage, layout: DefaultLayout},
-    
+    {path: "/blog", component: BlogListPage, layout: DefaultLayout},
+    {path: "/blog/:id", component: BlogPage, layout: DefaultLayout},
+    {path: "/user", component: CustomerPage, layout: DefaultLayout},
 
 ]

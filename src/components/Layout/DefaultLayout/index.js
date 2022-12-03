@@ -12,7 +12,6 @@ export const DefaultLayout = (props) => {
             behavior: "smooth"
           });
     },[page])
-  
     const handleClick = () => {
       if (page === 1) {
         setPage(0)

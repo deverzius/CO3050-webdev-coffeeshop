@@ -1,9 +1,22 @@
 import { useState } from 'react'
+import { Breadcrumb } from '../../components/Breadcrumb'
 import { formatCurrency } from '../../ultil'
 import './style.css'
 
 export const CartPage = () => {
-
+    const breadcrumb = {
+        parent: [
+            {
+                link: "/home",
+                name: "Home"
+            },
+            {
+                link: "/shop",
+                name: "menu"
+            },
+        ],
+        current: "Cart"
+    }
     const [tmp, setTmp] = useState([
         {
             cost: 54_000,
@@ -70,7 +83,7 @@ export const CartPage = () => {
 
     return (
         <div className='cart-container'>
-            <span>cart page</span>
+            <Breadcrumb props={breadcrumb} />
             <div className='cart-wrapper row'>
                 <div className='cart-product col-12'>
                     <div className='cart-product__item row'>

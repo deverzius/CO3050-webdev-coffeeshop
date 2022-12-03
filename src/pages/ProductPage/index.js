@@ -8,6 +8,7 @@ import { size, toppings } from "../../data";
 import { products } from "../../data";
 import { Product } from "../../components/Product";
 import { ProductMini } from "../../components/ProductMini";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 export const ProductPage = () => {
   const match = useParams({id: Number});
@@ -15,6 +16,19 @@ export const ProductPage = () => {
   const [selectedSize, setSelectedSize] = useState();
   const [quantity, setQuantity] = useState(1);
   const [cost, setCost] = useState(0);
+  const breadcrumb = {
+    parent: [
+        {
+            link: "/home",
+            name: "Home"
+        },
+        {
+            link: "/shop",
+            name: "menu"
+        },
+    ],
+    current: product?.name
+}
 
   const [toCart, setToCart] = useState({});
 
@@ -98,7 +112,7 @@ export const ProductPage = () => {
 
   return (
     <div className="container">
-      {/* <Breadcrumbs productType={product?.productType} name={product?.name} /> */}
+      <Breadcrumb props={breadcrumb} />
       <div className="container__item">
         <div className="order-carousel">
           { product && <img src={product.thumbnail} alt="" /> }
