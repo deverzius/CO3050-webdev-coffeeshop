@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+import { formatCurrency } from '../../ultil';
 import './style.css'
 
 
@@ -30,9 +31,11 @@ export const ProductMini = (props) => {
         // </div>
         <div className="product-container" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
             <div className="product-wrapper product-mini">
-                <img src={props.product.thumbnail} alt="" className="produvt-thumbnail"/>
+                <img src={props.product.image} alt="" className="produvt-thumbnail" />
+                <span className='product-name'>{props.product.name}</span>
+                <span className='product-price'>{formatCurrency(props.product.price)}</span>
                 <div className={`product-action ${isEnter}`}>
-                    <a href={`/order/${props.product.index}`}><i className="fa-solid fa-magnifying-glass"></i></a>
+                    <a href={`/order/${props.product.drink_id}`}><i className="fa-solid fa-magnifying-glass"></i></a>
                     {/* <Link to="/order"><i className="fa-solid fa-magnifying-glass"></i></Link> */}
                     <Link><i className="fa-regular fa-heart"></i></Link>
                     <Link><i className="fa-solid fa-recycle"></i></Link>

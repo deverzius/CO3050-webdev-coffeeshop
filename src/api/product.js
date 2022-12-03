@@ -1,8 +1,9 @@
 import { products } from "../data";
 
-export const getProductById = (id) => {
+const getProductById = (id) => {
     const product = products.find(product => product.index === Number(id));
-    if (!product) { 
+    if (!product)
+    {
         return {
             code: 401,
             message: "Product not found",
@@ -13,3 +14,5 @@ export const getProductById = (id) => {
         data: product
     }
 }
+
+export { getProductById };

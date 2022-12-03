@@ -1,6 +1,9 @@
+import { useState } from "react"
+import { login } from "../../../api/user"
+
 export const LoginAdmin = () => {
     return (
-        <div className="logincustomer"> 
+        <div className="logincustomer">
             <div className="logincustomer-form">
                 <strong>Username</strong>
                 <input type="text" name="username" id="username" placeholder="Type your username" />

@@ -1,12 +1,21 @@
-import React from "react"
+import { useEffect, useState } from "react"
 import { Product } from "../../components/Product"
-import { products } from "../../data"
+// import { products } from "../../data"
 import banner from '../../assets/imgs/banner.png'
 import banner2 from '../../assets/imgs/banner2.png'
 
 import './style.css'
+import { getDrinks } from "../../api"
 
 export const HomePage = () => {
+    const [drinks, setDrinks] = useState([]);
+
+    useEffect(() => {
+        Promise.resolve(getDrinks()).then(data => {
+            //console.log(data);
+            setDrinks(data);
+        });
+    }, []);
 
 
     return (
@@ -14,10 +23,10 @@ export const HomePage = () => {
             <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="10000">
-                    <img src={banner} className="d-block w-100" alt="..."/>
+                        <img src={banner} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item" data-bs-interval="10000">
-                    <img src={banner2} className="d-block w-100" alt="..."/>
+                        <img src={banner2} className="d-block w-100" alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -32,24 +41,23 @@ export const HomePage = () => {
             <div className="container row holic">
                 <span>Tea Holic</span>
                 {
-                    [...products].filter(i => i.index < 5).map((item, index) => (
+                    drinks.filter(item => item.type === 'tea').map((item, index) => (index <= 5) ? (
                         <div key={index} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 center">
-                            <Product product = {item}/>
+                            <Product product={item} />
                         </div>
-                    ))
+                    ) : "")
                 }
             </div>
             <div className="container row holic">
                 <span>Coffee Holic</span>
                 {
-                    [...products].filter(i => i.index < 5).map((item, index) => (
-
+                    drinks.filter(item => item.type === 'coffee').map((item, index) => (index <= 5) ? (
                         <div key={index} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 center">
-                            <Product product = {item}/>
+                            <Product product={item} />
                         </div>
-                    ))
+                    ) : "")
                 }
-            </div>  
+            </div>
         </div>
     )
 }

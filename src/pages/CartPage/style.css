@@ -17,7 +17,7 @@
 .cart-payment {
     background-color: #fff3d9;
     height: 500px;
-    display: flex;  
+    display: flex;
     padding: 60px 0;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,7 @@
 
 .cart-brand {
     font-size: 40px;
-    color:orange;
+    color: orange;
 }
 
 .cart-payment button {
@@ -51,7 +51,7 @@
     font-weight: 500;
 }
 
-.product__thumbnail img{
+.product__thumbnail img {
     width: 100%;
 }
 
@@ -60,7 +60,7 @@
     flex-direction: column;
 }
 
-.cart-product__item  {
+.cart-product__item {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -69,11 +69,20 @@
     margin-bottom: 20px !important;
 }
 
+.cart-product__item .product__remove_drink {
+    color: red;
+}
+
+.cart-product__item .product__remove_drink:hover {
+    cursor: pointer;
+}
+
+
 @media (max-width: 767.98px) {
     .product__name {
         display: none;
     }
-} 
+}
 
 .checkout {
     display: flex;
@@ -84,4 +93,3 @@
 .checkout button {
     margin-left: 5%;
 }
-

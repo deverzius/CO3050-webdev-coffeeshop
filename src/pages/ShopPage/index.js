@@ -1,23 +1,34 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import './style.css'
 import { ShopGrid } from "../ShopGrid"
 import { getAllType, getAllBrand } from "../../ultil"
-import { products } from "../../data"
+import { getDrinks } from "../../api"
+// import { products } from "../../data"
 
 export const ShopPage = () => {
 
     const [brand, setBrand] = useState()
     const [type, setType] = useState()
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        Promise.resolve(getDrinks()).then(data => {
+            console.log(data);
+            setProducts(data);
+        });
+    }, []);
 
 
     const handleClickBrand = (item) => {
-        if (item === brand) {
+        if (item === brand)
+        {
             setBrand()
         }
         else setBrand(item)
     }
     const handleClickType = (item) => {
-        if(item === type) {
+        if (item === type)
+        {
             setType()
         }
         else setType(item)
@@ -26,19 +37,24 @@ export const ShopPage = () => {
 
     const ProductFilter = (data) => {
         const tmp = [...data]
-        if (brand) {
-            if(type) {
+        if (brand)
+        {
+            if (type)
+            {
                 return tmp.filter(item => item.brand === brand).filter(item => item.type === type)
             }
             return tmp.filter(item => item.brand === brand)
-        } 
-        if (type) {
-            if(brand) {
+        }
+        if (type)
+        {
+            if (brand)
+            {
                 return tmp.filter(item => item.brand === brand).filter(item => item.type === type)
             }
             return tmp.filter(item => item.type === type)
-        } 
-        else {
+        }
+        else
+        {
             return data
         }
     }
@@ -53,24 +69,24 @@ export const ShopPage = () => {
                             getAllType(products).map((i, index) => (
                                 <button className={`btn-tag ${type === i && "active-tag"}`} key={index} onClick={() => handleClickType(i)}><span>{i}</span></button>
                             ))
-                            
+
                         }
                     </div>
-                    <span>Brand</span>
+                    {/* <span>Brand</span>
                     <div className='filter-type'>
                         {
                             getAllBrand(products).map((i, index) => (
                                 <button className={`btn-tag ${brand === i && "active-tag"}`} key={index} onClick={() => handleClickBrand(i)}><span>{i}</span></button>
                             ))
-                            
+
                         }
-                    </div>
+                    </div> */}
                 </div>
             </div>
-        
+
             <div className="default-content col-12 col-lg-9">
                 <div>
-                    <ShopGrid props={ProductFilter(products)}/>
+                    <ShopGrid props={ProductFilter(products)} />
                 </div>
             </div>
         </div>

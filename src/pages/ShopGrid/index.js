@@ -14,9 +14,9 @@ export const ShopGrid = (props) => {
     }
 
     const handleClick = () => {
-        if (screen.width > 765) {
-            setGrid("list")
-        }
+        // if (screen.width > 765) {
+        //     setGrid("list")
+        // }
     }
 
     return (
@@ -24,7 +24,7 @@ export const ShopGrid = (props) => {
             <div className='default-content-filter'>
                 <div className='display-icon'>
                     <i className={`fa-solid fa-grip ${grid === "grid" && "active"}`} onClick={() => setGrid("grid")}></i>
-                    <i className={`fa-solid fa-list ${grid === "list" && "active"}`} onClick={handleClick}></i>
+                    <i className={`fa-solid fa-list ${grid === "list" && "active"}`} onClick={() => setGrid("list")}></i>
                 </div>
                 <span>There are {`${props.props.length}`} Products.</span>
                 {/* <button onClick={Width}>Click</button> */}
@@ -43,6 +43,6 @@ export const ShopGrid = (props) => {
                 }
             </div>
         </div>
-        
+
     )
 }

@@ -22,7 +22,7 @@ import { Fragment } from 'react';
 import { useState, useEffect } from 'react';
 
 function App() {
-  
+
 
 
   return (
@@ -35,16 +35,18 @@ function App() {
                 const Page = routes.component;
                 const Layout = routes.layout ? routes.layout : Fragment;
                 return (
-                  <Route 
-                    path={routes.path} 
+                  <Route
+                    key={id}
+                    path={routes.path}
                     element={
                       <Layout>
-                        <Page/>
+                        <Page />
                       </Layout>
                     }
 
                   />
-                )})
+                )
+              })
             }
           </Routes>
         </Body>

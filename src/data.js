@@ -1,5 +1,5 @@
 export const products = [
-    {   
+    {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "SoundBox Pro Portable",
         price: 18_000,
@@ -17,7 +17,7 @@ export const products = [
         type: "tea",
         brand: "studio design",
         desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
-    },    
+    },
     {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "Polk Audio T30 Speaker",
@@ -27,7 +27,7 @@ export const products = [
         brand: "studio design",
         desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
 
-    },    
+    },
     {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "Polk Audio T30 Speaker",
@@ -107,7 +107,7 @@ export const products = [
         brand: "studio design",
         desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
 
-    },    
+    },
     {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "Polk Audio T30 Speaker",
@@ -116,7 +116,7 @@ export const products = [
         type: "hi-coffee",
         brand: "studio design",
         desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
-    },    
+    },
     {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "Polk Audio T30 Speaker",
@@ -126,7 +126,7 @@ export const products = [
         brand: "studio design",
         desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
 
-    },    
+    },
     {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "Polk Audio T30 Speaker",
@@ -135,7 +135,7 @@ export const products = [
         type: "hi-coffee",
         brand: "studio design",
         desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
-    },    
+    },
     {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "Polk Audio T30 Speaker",
@@ -144,7 +144,7 @@ export const products = [
         type: "hi-coffee",
         brand: "studio design",
         desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
-    },    
+    },
     {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "Polk Audio T30 Speaker",
@@ -162,7 +162,7 @@ export const products = [
         type: "hi-tea",
         brand: "studio design",
         desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
-    },    
+    },
     {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "Polk Audio T30 Speaker",
@@ -189,7 +189,7 @@ export const products = [
         type: "hi-tea",
         brand: "studio design",
         desc: "Chút ngọt ngào của Vải, mix cùng vị chua thanh tao từ trà hoa Hibiscus, mang đến cho bạn thức uống đúng chuẩn vừa ngon, vừa healthy.",
-    },    
+    },
     {
         thumbnail: "https://product.hstatic.net/1000075078/product/1653291204_hi-tea-vai_24673f2fda464065a0ba0707ca8ef5b1.jpg",
         name: "Polk Audio T30 Speaker",

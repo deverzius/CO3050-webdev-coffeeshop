@@ -1,4 +1,3 @@
-
 .login-container {
     display: flex;
     flex-direction: column;
@@ -11,7 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 150px;
+    padding-top: 100px;
 }
 
 .login-header {
@@ -25,7 +24,8 @@
     margin-bottom: 20px;
 }
 
-.login-swap > span, .undeline {
+.login-swap>span,
+.undeline {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
@@ -44,4 +44,4 @@
     .login-wraper {
         padding-top: 40px;
     }
-} 
+}

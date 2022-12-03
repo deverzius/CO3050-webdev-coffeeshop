@@ -3,17 +3,18 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import './style.css'
 import { formatCurrency } from "../../ultil";
-import { getProductById } from "../../api/product";
+// import { getProductById } from "../../api/product";
 import { size, toppings } from "../../data";
-import { products } from "../../data";
-import { Product } from "../../components/Product";
+// import { products } from "../../data";
 import { ProductMini } from "../../components/ProductMini";
+import { addToOrder, getDrinkById, getDrinks } from "../../api";
 
 export const ProductPage = () => {
-  const match = useParams({id: Number});
+  const match = useParams({ id: Number });
   const [product, setProduct] = useState();
   const [selectedSize, setSelectedSize] = useState();
   const [quantity, setQuantity] = useState(1);
+  const [productList, setProductList] = useState([]);
   const [cost, setCost] = useState(0);
 
   const [toCart, setToCart] = useState({});
@@ -22,23 +23,29 @@ export const ProductPage = () => {
   const [selectedTopping, setSelectedTopping] = useState([]);
 
   useEffect(() => {
-    const response = getProductById(match.id);
-    if (response.code === 404) {
-      throw new Error(response.message);
-    }
-    setProduct(response.data);
-  
+    //const response = getDrinkById(match.id);
+    Promise.resolve(getDrinkById(match.id)).then(data => setProduct(data));
+    Promise.resolve(getDrinks()).then(data => setProductList(data));
 
+    // if (response.code === 404)
+    // {
+    //   throw new Error(response.message);
+    // }
+    // setProduct(response.data);
   }, [match.id]);
 
   const handleSelectSize = (size) => {
-    if (selectedSize) {
-      if (selectedSize.name === size.name) {
+    if (selectedSize)
+    {
+      if (selectedSize.name === size.name)
+      {
         setSelectedSize(undefined);
-      } else {
+      } else
+      {
         setSelectedSize(size);
       }
-    } else {
+    } else
+    {
       setSelectedSize(size);
     }
   };
@@ -46,23 +53,28 @@ export const ProductPage = () => {
   const handleSelectTopping = (topping) => {
     console.log(checkTopping(topping))
     console.log(selectedTopping)
-    if (selectedTopping.length === 0) {
+    if (selectedTopping.length === 0)
+    {
       setSelectedTopping([...selectedTopping, topping]);
     }
-    else {
-      if (selectedTopping.find(i => i.id === topping.id)) {
+    else
+    {
+      if (selectedTopping.find(i => i.id === topping.id))
+      {
         const tmp = selectedTopping.filter(i => i.id !== topping.id)
         setSelectedTopping(tmp)
       }
-      else {
+      else
+      {
         setSelectedTopping([...selectedTopping, topping]);
       }
     }
   };
 
   const costPlus = () => {
-    let cost = (product?.price || 0) +
-    (selectedSize?.extraPrice || 0)
+    let cost = parseInt((product?.price || 0)) +
+      (selectedSize?.extraPrice || 0);
+
     selectedTopping.forEach(i => {
       cost += i.price
     })
@@ -84,7 +96,13 @@ export const ProductPage = () => {
     setQuantity(quantity + 1)
   }
 
-  const handldeClick = () => {
+  const handleAddToCartClick = async () => {
+    if (!selectedSize)
+    {
+      alert("Vui lòng chọn size đồ uống!!");
+      return;
+    }
+
     const tmp = {
       product,
       selectedSize,
@@ -92,8 +110,10 @@ export const ProductPage = () => {
       cost: costPlus(),
       quantity
     }
-  console.log(tmp)
-   // add to cart
+    // console.log(tmp)
+    // add to cart
+
+    addToOrder(match.id, quantity, selectedSize, selectedTopping);
   }
 
   return (
@@ -101,7 +121,7 @@ export const ProductPage = () => {
       {/* <Breadcrumbs productType={product?.productType} name={product?.name} /> */}
       <div className="container__item">
         <div className="order-carousel">
-          { product && <img src={product.thumbnail} alt="" /> }
+          {product && <img src={product.image} alt="" />}
         </div>
         <div className="item-deliver">
           <h4>{product?.name}</h4>
@@ -123,27 +143,26 @@ export const ProductPage = () => {
           <div className="item-size">
             <p>Kích thước</p>
             <div className="size-button">
-              {size.map((size) => (
-                <div>
+              {size.map((size, idx) => (
+                <div key={idx}>
                   <button className={`${selectedSize && selectedSize.name === size.name ? "productpade-btn__active" : "productpage-btn"}`} onClick={() => handleSelectSize(size)}>
-                    {`${size.name} ${
-                      size.extraPrice
-                        ? "+ " + formatCurrency(size.extraPrice)
-                        : ""
-                    }`}
+                    {`${size.name} ${size.extraPrice
+                      ? "+ " + formatCurrency(size.extraPrice)
+                      : ""
+                      }`}
                   </button>
                 </div>
               ))}
             </div>
           </div>
-        
+
           <div className="item-topping">
             <p>Topping</p>
             <div className="topping-button">
-              {toppings.map((topping) => (
-                <div>
+              {toppings.map((topping, idx) => (
+                <div key={idx}>
                   <button className={`${checkTopping(topping) ? "productpade-btn__active" : "productpage-btn"}`}
-                   onClick={() => handleSelectTopping(topping)}>
+                    onClick={() => handleSelectTopping(topping)}>
                     {
                       topping.name + " + " + formatCurrency(topping.price)
                     }
@@ -158,8 +177,13 @@ export const ProductPage = () => {
             <button className="productpage-btn handle-btn" onClick={handleAdd}>+</button>
           </div>
           {/* <button className="productpade-btn__active order-btn" onClick={handldeClick}>Thêm vào giỏ hàng</button>  */}
-          <button type="button" className="productpade-btn__active order-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={handldeClick}>Thêm vào giỏ hàng</button>
-          <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <button type="button" className="productpade-btn__active order-btn"
+            data-bs-target="#exampleModal" onClick={handleAddToCartClick}>
+            Thêm vào giỏ hàng
+          </button>
+          {/* data-bs-toggle="modal" */}
+
+          <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
@@ -184,14 +208,14 @@ export const ProductPage = () => {
       <div className="paragraph-container">
         <div className="information">
           <h4>Mô tả sản phẩm</h4>
-          {product && product.desc}
+          {product && product.description}
         </div>
       </div>
       <div className="concem-same-item">
         <h4>Sản phẩm liên quan</h4>
         <div className="same-item row">
-          {products.slice(0, 4).map((product) => (
-            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          {productList.slice(0, 4).map((product, idx) => (
+            <div key={idx} className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
               <ProductMini product={product} />
             </div>
           ))}
