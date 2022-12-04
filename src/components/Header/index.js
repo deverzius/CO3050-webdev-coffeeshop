@@ -1,12 +1,34 @@
 
 
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '../../context'
 import './style.css'
 
 export const Header = () => {
 
     const user = useAppContext()
+    const navigate = useNavigate()
+
+    const handleUserClick = (e) => {
+        e.preventDefault();
+
+        const role = localStorage.getItem('role');
+        console.log(role);
+
+        if (!role)
+        {
+            navigate('/login')
+        }
+        else if (role === 'ad')
+        {
+            navigate('/admin')
+        }
+        else
+        {
+            navigate('/user')
+        }
+    }
 
     return (
         <div className='header-wrapper sticky'>
@@ -36,10 +58,12 @@ export const Header = () => {
                                 <li className="nav-item">
                                     <a className="nav-link" href="/cart">Giỏ hàng</a>
                                 </li>
-                                <li>
-                                    <a className='col-2 header-user' href='/user'>
+                                <li className="nav-item">
+                                    <a className='col-2 header-user' href='/user' onClick={handleUserClick}>
                                         <i className="fa-solid fa-user"></i>
-                                        <span>{localStorage.getItem('name') ?? 'Chưa đăng nhập'}</span>
+                                        <span style={{ fontWeight: 600 }}>
+                                            {localStorage.getItem('username') ?? 'Đăng nhập'}
+                                        </span>
                                     </a>
                                 </li>
                             </ul>

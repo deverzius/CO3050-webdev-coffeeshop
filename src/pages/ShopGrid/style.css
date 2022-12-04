@@ -25,10 +25,10 @@
 .shopgrid-paginate__btn:hover {
     background-color: #0d6efd;
     color: white;
-    
+
 }
 
-.default-content-filter{
+.default-content-filter {
     display: flex;
     align-items: center;
     font-size: 14px;
@@ -91,8 +91,14 @@ option {
     justify-content: center !important;
 }
 
+@media (max-width: 991.98px) {
+    .shopgrid-wrapper {
+        margin-top: 20px;
+    }
+}
+
 @media (max-width: 767.98px) {
     .grip {
         display: none;
     }
-} 
+}

@@ -50,9 +50,7 @@ export const BlogPage = () => {
     return (
         <div className="blogpage-container">
             <div className="blogpage-header"
-                style={{ backgroundImage: `url(${art ? art.image : ""})` }}
-            >
-
+                style={{ backgroundImage: `url(${art ? art.image : ""})` }}>
             </div>
             <div className="blogpage-wrapper">
                 <Breadcrumb props={breadcrumb} />

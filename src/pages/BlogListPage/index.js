@@ -39,7 +39,8 @@ export const BlogListPage = () => {
             <div className='bloglist-tea'>
                 <h4>Tea Holic</h4>
                 <div className='row'>
-                    <div className='col-12 col-lg-6 blg-img' style={{ backgroundImage: `url(https://file.hstatic.net/1000075078/file/teaholic_3f320cac87814da0912f45ccfebd4e0e.jpg)` }}>
+                    <div className='col-12 col-lg-6 blg-img'
+                        style={{ backgroundImage: `url(https://file.hstatic.net/1000075078/file/teaholic_3f320cac87814da0912f45ccfebd4e0e.jpg)`, borderRadius: 10 }}>
                     </div>
                     <div className='col-12 col-lg-6 row'>
                         {
@@ -65,7 +66,8 @@ export const BlogListPage = () => {
                             ) : "")
                         }
                     </div>
-                    <div className='col-12 col-lg-6 blg-img' style={{ backgroundImage: `url(https://file.hstatic.net/1000075078/file/blog_94b05e56224646bc86c6e72c73ac4258.jpg` }}>
+                    <div className='col-12 col-lg-6 blg-img'
+                        style={{ backgroundImage: `url(https://file.hstatic.net/1000075078/file/blog_94b05e56224646bc86c6e72c73ac4258.jpg`, borderRadius: 10 }}>
                     </div>
                 </div>
             </div>

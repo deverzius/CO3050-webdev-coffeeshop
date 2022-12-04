@@ -7,6 +7,7 @@ import banner2 from '../../assets/imgs/banner2.png'
 import { getArticles } from '../../api/article'
 import './style.css'
 import { getDrinks } from "../../api"
+import { getUserByName } from '../../api/user'
 import { BlogContainer } from "../../components/Blog"
 
 export const HomePage = () => {
@@ -14,6 +15,9 @@ export const HomePage = () => {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
+        Promise.resolve(getUserByName()).then(data => {
+            //console.log(data);
+        });;
         Promise.resolve(getDrinks()).then(data => {
             //console.log(data);
             setDrinks(data);

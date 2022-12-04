@@ -6,6 +6,12 @@
 	border-bottom: 1px rgba(0, 0, 0, 0.192) solid;
 }
 
+#product-page .product-title {
+	font-size: 22px;
+	padding-bottom: 10px;
+	font-weight: 500;
+}
+
 .order-carousel {
 	width: 100%;
 	padding-right: 16px;
@@ -30,6 +36,7 @@
 
 .order-btn {
 	width: 70%;
+	border-radius: 4px;
 }
 
 .item-deliver span {

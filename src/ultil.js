@@ -47,3 +47,10 @@ export const calculatePrice = (price, size, toppings) => {
 
   return price + sizeCost + toppingsCost
 }
+
+export const formatStringDate = (s) => {
+  const date = new Date(s);
+  const res = date.toLocaleDateString('vi-VN').toString();
+
+  return res;
+}

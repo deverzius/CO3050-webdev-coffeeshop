@@ -1,13 +1,5 @@
 import {
-  Body,
-  Footer,
-  Admin,
-  Contact,
-  Home,
-  Member,
-  Menu,
-  News,
-  Order
+  Body
 } from './components';
 import {
   BrowserRouter as Router,

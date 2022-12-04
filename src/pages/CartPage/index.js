@@ -39,11 +39,12 @@ export const CartPage = () => {
     }
 
     const handlePayClick = () => {
-
+        localStorage.removeItem('order_id');
+        alert('Thanh toán thành công!')
     }
 
     return (
-        <div className='cart-container'>
+        <div className='cart-container' id='cart-page'>
             <div className='cart-wrapper row'>
                 <div className='cart-product col-12'>
                     <div className='cart-product__item row'>
@@ -89,8 +90,12 @@ export const CartPage = () => {
                                 </div>
                             ))
                     }
-                    <div className={`checkout ${selectedDrinks.length < 1 && "hidden"}`}>
-                        <span>Tổng cộng: {formatCurrency(total())}</span>
+                    <div className={`checkout ${selectedDrinks.length < 1 && "hidden"}`}
+                        style={{
+                            display: 'flex'
+                        }}
+                    >
+                        <span className='total-price'>Tổng cộng: {formatCurrency(total())}</span>
                         <button className='btn btn-primary' onClick={handlePayClick}>Thanh toán</button>
                     </div>
 

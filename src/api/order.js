@@ -11,10 +11,10 @@ const actions = {
 }
 
 async function getOrders() {
-	// const res = await fetch(urlOrder + actions.read);
-	// const data = await res.json();
+	const res = await fetch(urlOrder + actions.read);
+	const data = await res.json();
 
-	// return data;
+	return data;
 }
 
 async function getOrderById(id) {

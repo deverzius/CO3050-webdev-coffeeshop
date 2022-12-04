@@ -23,7 +23,10 @@ class User
 		while ($row = $data->fetch_assoc()) {
 			$data1 = $conn->query("select point from customer where cus_id={$row['user_id']}");
 			$data1 = $data1->fetch_assoc();
-			$customers[] = array_merge($row, $data1);
+
+			if (isset($data1)) {
+				$customers[] = array_merge($row, $data1);
+			}
 		}
 
 		$conn->close();
@@ -39,11 +42,22 @@ class User
 		while ($row = $data->fetch_assoc()) {
 			$data1 = $conn->query("select start_date from admin where ad_id={$row['user_id']}");
 			$data1 = $data1->fetch_assoc();
-			$admins[] = array_merge($row, $data1);
+			if (isset($data1)) {
+				$admins[] = array_merge($row, $data1);
+			}
 		}
 
 		$conn->close();
 		return $admins;
+	}
+
+	function get_user_by_username($un)
+	{
+		$conn = $this->database->connect();
+		$data = $conn->query("select * from user where username='{$un}'");
+		$user = $data->fetch_assoc();
+		$conn->close();
+		return $user;
 	}
 
 	function login($un, $pw)
@@ -90,6 +104,21 @@ class User
 		$conn->close();
 		return ['status' => 'OK'];
 	}
+
+	function alter_user($username, $password, $name, $email, $address)
+	{
+		$conn = $this->database->connect();
+		// check duplicate username
+
+		$conn->query("update user 
+			set 
+				password = '{$password}', 
+				name = '{$name}', 
+				address = '{$address}' where username = '{$username}'");
+
+		$data = $conn->query("select * from user where username = '{$username}'");
+		return $data;
+	}
 }
 
 $user = new User();
@@ -115,7 +144,16 @@ if ($action == 'read_all') {
 	$email = $_POST['email'];
 
 	echo json_encode(($user->sign_up($username, $password, $name, $email, $address)));
-} else if ($action == 'create') {
-} else if ($action == 'delete') {
+} else if ($action == 'read') {
+	$username = $_POST['username'];
+	echo json_encode(($user->get_user_by_username($username)));
+} else if ($action == 'alter') {
+	$username = $_POST['username'];
+	$name = $_POST['name'];
+	$password = $_POST['password'];
+	$address = $_POST['address'];
+	$email = $_POST['email'];
+
+	echo json_encode(($user->alter_user($username, $password, $name, $email, $address)));
 } else if ($action == 'update') {
 }

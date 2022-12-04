@@ -16,35 +16,34 @@ export const ProductGrid = (props) => {
     }
 
     return (
-        <div className="productgrid-container" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-            <div className="row">
-                <div className="col-4">
-                    <img src={props.product.thumbnail} alt="" className="productgrid-thumbnail" />
-                </div>
+        <div className="productgrid-container" id="productgrid" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+            <div className="col-4">
+                <img src={props.product.image} alt="" className="productgrid-thumbnail" />
+            </div>
 
-                <div className="col-5 productgrid-detail">
-                    <p className="product-detail__line2">{props.product.name}</p>
-                    <p className="product-detail__line1">{props.product.brand}</p>
-                    <p className="product-detail__line4">{props.product.desc}</p>
-                </div>
-                <div className="col-3 productgrid-detail-2">
-                    <p className="product-detail__line4">Availability: 599 In Stock</p>
-                    <div className="product-detail__line3">
-                        <p className="product-detail__line3-current">
-                            {formatCurrency(props.product.price)}
-                        </p>
-                        <p className="product-detail__line3-discount">{formatCurrency(props.product.price)}</p>
-                    </div>
-
-                    <div className="productgrid-action">
-                        <Link to={`/order/${props.product.index}`}><i className="fa-solid fa-magnifying-glass"></i></Link>
-                        <Link><i className="fa-regular fa-heart"></i></Link>
-                        <Link><i className="fa-solid fa-recycle"></i></Link>
-                    </div>
-
+            <div className="col-7 productgrid-detail">
+                <div>
+                    <p className="product-detail__line2" style={{ fontSize: 22 }}>{props.product.name}</p>
+                    <p className="product-detail__line3-discount" style={{ padding: 0 }}>
+                        {formatCurrency(props.product.price)}
+                    </p>
+                    {/* <p className="product-detail__line1">{props.product.brand}</p> */}
+                    <p className="product-detail__line4">{props.product.description}</p>
+                    <Link className="btn btn-primary my-2" to={`/order/${props.product.index}`}>
+                        Mua ngay
+                    </Link>
                 </div>
 
             </div>
+            {/* <div className="productgrid-detail-2">
+                <div className="product-detail__line3">
+                    <p className="product-detail__line3-discount">
+                        {formatCurrency(props.product.price)}
+                    </p>
+                </div>
+                
+            </div> */}
+
             {/* <button className={`product-btn ${isEnter}`}>ADD TO CART</button> */}
         </div>
     )

@@ -1,7 +1,11 @@
 import { useEffect } from 'react'
+import { formatStringDate } from '../../ultil'
 import './style.css'
 
 export const BlogContainer = ({ blog }) => {
+    // useEffect(() => {
+    //     console.log(blog.date)
+    // })
 
     return (
         <a href={`/blog/${blog.article_id}`} className="link">
@@ -9,10 +13,10 @@ export const BlogContainer = ({ blog }) => {
                 <div className='blog-wrapper__content'>
                     <div className='blog-background' style={{ backgroundImage: `url(${blog.image})` }}>
                     </div>
-                    <div className='blog-date'>
-                        {blog.date.toString()}
-                    </div>
                     <h5 className='blog-title'>{blog.title}</h5>
+                    <div className='blog-date'>
+                        {formatStringDate(blog.date)}
+                    </div>
                     <span className='blog-content'>
                         {blog.content}
                     </span>
@@ -32,8 +36,7 @@ export const BlogContainerGrid = ({ blog }) => {
                     <div className='col-12 col-md-7'>
                         <h5 className='bloggid-title'>{blog.title}</h5>
                         <div className='blog-date'>
-                            {/* {blog.date.format("DD/MM/YYYY")} */}
-                            {blog.date}
+                            {formatStringDate(blog.date)}
                         </div>
                         <span className='bloggrid-content'>
                             {blog.content}

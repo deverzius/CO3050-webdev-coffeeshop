@@ -7,6 +7,7 @@ const actions = {
 	update: '?action=update',
 	delete: '?action=delete',
 	login: '?action=login',
+	alter: '?action=alter',
 	sign_up: '?action=sign_up'
 }
 
@@ -18,7 +19,13 @@ async function login(username, password) {
 	const responseData = await fetchData(urlUser, actions.login, formData);
 	//console.log(responseData);
 
+	if (localStorage.getItem('order_id'))
+	{
+		localStorage.removeItem('order_id')
+	}
+
 	localStorage.removeItem('username');
+	localStorage.removeItem('password');
 	localStorage.removeItem('name');
 	localStorage.removeItem('point');
 	localStorage.removeItem('address');
@@ -26,6 +33,7 @@ async function login(username, password) {
 
 	if (responseData.id !== '-1')
 	{
+		localStorage.setItem('password', responseData.password);
 		localStorage.setItem('username', responseData.username);
 		localStorage.setItem('name', responseData.name);
 		localStorage.setItem('point', responseData.point ?? 0);
@@ -34,6 +42,48 @@ async function login(username, password) {
 		return true;
 	}
 	return false;
+}
+
+async function alterUser(username, password, name, email, address) {
+	const data = { username, password, name, email, address };
+	const formData = objToFormData(data);
+
+	const responseData = await fetchData(urlUser, actions.alter, formData);
+
+	console.log(responseData)
+
+	localStorage.setItem('username', username);
+	localStorage.setItem('password', password);
+	localStorage.setItem('name', name);
+	localStorage.setItem('point', 0);
+	localStorage.setItem('address', address);
+	localStorage.setItem('role', 'cus');
+}
+
+async function getUserByName() {
+	const username = localStorage.getItem('id');
+	if (!username)
+	{
+		return;
+	}
+
+	const data = { username };
+	const formData = objToFormData(data);
+
+	const responseData = await fetchData(urlUser, actions.read, formData);
+	console.log(responseData);
+
+	if (responseData)
+	{
+		localStorage.setItem('username', responseData.username);
+		localStorage.setItem('password', responseData.password);
+		localStorage.setItem('name', responseData.name);
+		localStorage.setItem('point', responseData.point ?? 0);
+		localStorage.setItem('address', responseData.address);
+		localStorage.setItem('role', responseData.role);
+	}
+
+	return responseData;
 }
 
 async function signUp(username, password, name, email, address) {
@@ -45,6 +95,7 @@ async function signUp(username, password, name, email, address) {
 	if (responseData.status === 'OK')
 	{
 		localStorage.setItem('username', username);
+		localStorage.setItem('password', password);
 		localStorage.setItem('name', name);
 		localStorage.setItem('point', 0);
 		localStorage.setItem('address', address);
@@ -58,4 +109,11 @@ async function signUp(username, password, name, email, address) {
 	return false;
 }
 
-export { login, signUp }
+async function getAllUser(type) {
+	const res = await fetch(urlUser + actions.read_all + "&type=" + type);
+	const data = await res.json();
+
+	return data;
+}
+
+export { login, signUp, getAllUser, getUserByName, alterUser }

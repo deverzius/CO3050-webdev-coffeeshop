@@ -1,7 +1,7 @@
 .blog-wrapper {
     border-radius: 10px;
     padding: 2px 0;
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 
 .blog-wrapper:hover {
@@ -12,11 +12,11 @@
 
 .blog-wrapper__content {
     width: 98%;
-    margin: 4px auto 4px auto;
-
+    margin: 1% auto;
 }
 
-.blog-background, .bloggrid-background {
+.blog-background,
+.bloggrid-background {
     height: 180px;
     background-color: antiquewhite;
     background-position: center;
@@ -30,7 +30,12 @@
 
 
 .blog-title {
+    font-size: 19px;
+    line-height: 1.5;
+    margin: 8px 0;
+    display: inline-block;
     overflow: hidden;
+    /* text-align: justify; */
     text-overflow: ellipsis;
     -webkit-line-clamp: 1;
     display: -webkit-box;
@@ -38,18 +43,26 @@
 }
 
 .blog-content {
+    text-align: justify;
+    clear: both;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 3;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-}  
-
-.blog-date {
-    margin: 4px 0;
 }
 
-.bloggrid-content{
+.blog-date {
+    font-style: italic;
+    display: block;
+    padding-right: 10px;
+    float: right;
+}
+
+
+
+
+.bloggrid-content {
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;

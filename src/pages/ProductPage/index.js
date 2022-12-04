@@ -161,17 +161,18 @@ export const ProductPage = () => {
     // add to cart
 
     addToOrder(match.id, quantity, selectedSize, selectedTopping);
+    alert("Thêm vào giỏ hàng thành công!!");
   }
 
   return (
-    <div className="container">
+    <div id="product-page" className="container">
       <Breadcrumb props={breadcrumb} />
       <div className="container__item">
-        <div className="order-carousel">
-          {product && <img src={product.image} alt="" />}
+        <div className="order-carousel" style={{ paddingTop: 15 }}>
+          {product && <img src={product.image} alt="" style={{ borderRadius: 15 }} />}
         </div>
         <div className="item-deliver">
-          <h4>{product?.name}</h4>
+          <h4 style={{ fontSize: 30, paddingTop: 15 }}>{product?.name}</h4>
           <div className="product-price">
             <span>
               {formatCurrency(
@@ -192,7 +193,9 @@ export const ProductPage = () => {
             <div className="size-button">
               {size.map((size, idx) => (
                 <div key={idx}>
-                  <button className={`${selectedSize && selectedSize.name === size.name ? "productpade-btn__active" : "productpage-btn"}`} onClick={() => handleSelectSize(size)}>
+                  <button
+                    className={`${selectedSize && selectedSize.name === size.name ? "productpade-btn__active" : "productpage-btn"}`}
+                    onClick={() => handleSelectSize(size)}>
                     {`${size.name} ${size.extraPrice
                       ? "+ " + formatCurrency(size.extraPrice)
                       : ""
@@ -254,12 +257,12 @@ export const ProductPage = () => {
       </div>
       <div className="paragraph-container">
         <div className="information">
-          <h4>Mô tả sản phẩm</h4>
+          <h4 className="product-title">Mô tả sản phẩm</h4>
           {product && product.description}
         </div>
       </div>
       <div className="concem-same-item">
-        <h4>Sản phẩm liên quan</h4>
+        <h4 className="product-title">Sản phẩm liên quan</h4>
         <div className="same-item row">
           {productList.slice(0, 4).map((product, idx) => (
             <div key={idx} className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
