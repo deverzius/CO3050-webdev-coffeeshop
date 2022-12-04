@@ -1,19 +1,26 @@
 import { useEffect, useState } from "react"
 import { Product } from "../../components/Product"
 // import { products } from "../../data"
+// import { blog } from "../../data"
 import banner from '../../assets/imgs/banner.png'
 import banner2 from '../../assets/imgs/banner2.png'
-
+import { getArticles } from '../../api/article'
 import './style.css'
 import { getDrinks } from "../../api"
+import { BlogContainer } from "../../components/Blog"
 
 export const HomePage = () => {
     const [drinks, setDrinks] = useState([]);
+    const [news, setNews] = useState([]);
 
     useEffect(() => {
         Promise.resolve(getDrinks()).then(data => {
             //console.log(data);
             setDrinks(data);
+        });
+        Promise.resolve(getArticles()).then(data => {
+            //console.log(data)
+            setNews(data)
         });
     }, []);
 
@@ -39,7 +46,8 @@ export const HomePage = () => {
                 </button>
             </div>
             <div className="container row holic">
-                <span>Tea Holic</span>
+                <span><a href="/shop">Tea Holic</a></span>
+
                 {
                     drinks.filter(item => item.type === 'tea').map((item, index) => (index <= 5) ? (
                         <div key={index} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 center">
@@ -49,13 +57,24 @@ export const HomePage = () => {
                 }
             </div>
             <div className="container row holic">
-                <span>Coffee Holic</span>
+                <span><a href="/shop">Coffee Holic</a></span>
+
                 {
                     drinks.filter(item => item.type === 'coffee').map((item, index) => (index <= 5) ? (
                         <div key={index} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 center">
                             <Product product={item} />
                         </div>
                     ) : "")
+                }
+            </div>
+            <div className="container holic row blog">
+                <span><a href="/blog">Blog</a></span>
+                {
+                    news.slice(0, 3).map((item, index) => (
+                        <div key={index} className="col-sm-12 col-md-6 col-lg-4 center">
+                            <BlogContainer blog={item} />
+                        </div>
+                    ))
                 }
             </div>
         </div>

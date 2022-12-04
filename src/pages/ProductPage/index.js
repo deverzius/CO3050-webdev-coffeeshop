@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import './style.css'
 import { formatCurrency } from "../../ultil";
 // import { getProductById } from "../../api/product";
-import { size, toppings } from "../../data";
+// import { size, toppings } from "../../data";
 // import { products } from "../../data";
 import { ProductMini } from "../../components/ProductMini";
 import { addToOrder, getDrinkById, getDrinks } from "../../api";
+import { Breadcrumb } from "../../components/Breadcrumb";
 
 export const ProductPage = () => {
   const match = useParams({ id: Number });
@@ -16,6 +17,52 @@ export const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [productList, setProductList] = useState([]);
   const [cost, setCost] = useState(0);
+  const breadcrumb = {
+    parent: [
+      {
+        link: "/home",
+        name: "Trang chủ"
+      },
+      {
+        link: "/shop",
+        name: "Menu"
+      },
+    ],
+    current: product?.name
+  }
+
+  const size = [
+    {
+      name: "Vừa",
+      extraPrice: 0
+    },
+
+    {
+      name: "Trung",
+      extraPrice: 6_000
+    },
+    {
+      name: "Lớn",
+      extraPrice: 8_000
+    }
+  ]
+  const toppings = [
+    {
+      id: 1,
+      name: "Đào ngâm",
+      price: 10_000
+    },
+    {
+      id: 2,
+      name: "Trân châu trắng",
+      price: 15_000
+    },
+    {
+      id: 3,
+      name: "Foam Cheese",
+      price: 20_000
+    }
+  ]
 
   const [toCart, setToCart] = useState({});
 
@@ -118,7 +165,7 @@ export const ProductPage = () => {
 
   return (
     <div className="container">
-      {/* <Breadcrumbs productType={product?.productType} name={product?.name} /> */}
+      <Breadcrumb props={breadcrumb} />
       <div className="container__item">
         <div className="order-carousel">
           {product && <img src={product.image} alt="" />}

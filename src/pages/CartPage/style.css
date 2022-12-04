@@ -93,3 +93,7 @@
 .checkout button {
     margin-left: 5%;
 }
+
+.cart-container .breadcrumb {
+    padding-top: 10px;
+}

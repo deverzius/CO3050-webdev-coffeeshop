@@ -10,7 +10,11 @@
     align-items: flex-start;
     position: sticky;
     top: 24px;
-    padding-top: 60px;
+    /* padding-top: 60px; */
+}
+
+.default-filter .breadcrumb {
+    padding-top: 40px;
 }
 
 .default-filter span {

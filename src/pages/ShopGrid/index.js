@@ -26,7 +26,7 @@ export const ShopGrid = (props) => {
                     <i className={`fa-solid fa-grip ${grid === "grid" && "active"}`} onClick={() => setGrid("grid")}></i>
                     <i className={`fa-solid fa-list ${grid === "list" && "active"}`} onClick={() => setGrid("list")}></i>
                 </div>
-                <span>There are {`${props.props.length}`} Products.</span>
+                <span>{`${props.props.length}`} sản phẩm.</span>
                 {/* <button onClick={Width}>Click</button> */}
             </div>
             <div className='row'>

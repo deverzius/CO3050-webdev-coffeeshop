@@ -3,7 +3,8 @@ import './style.css'
 import { ShopGrid } from "../ShopGrid"
 import { getAllType, getAllBrand } from "../../ultil"
 import { getDrinks } from "../../api"
-// import { products } from "../../data"
+import { Breadcrumb } from "../../components/Breadcrumb"
+
 
 export const ShopPage = () => {
 
@@ -17,7 +18,15 @@ export const ShopPage = () => {
             setProducts(data);
         });
     }, []);
-
+    const breadcrumb = {
+        parent: [
+            {
+                link: "/home",
+                name: "Home"
+            },
+        ],
+        current: "Menu"
+    }
 
     const handleClickBrand = (item) => {
         if (item === brand)
@@ -59,10 +68,11 @@ export const ShopPage = () => {
         }
     }
     return (
-        <div className="defaultlayout-wrapper row">
+        <div className="container row">
             <div className='col-12 col-sm-12 col-md-12 col-lg-3 '>
                 <div className="default-filter">
-                    <span>Products</span>
+                    <Breadcrumb props={breadcrumb} />
+                    <span>Sản phẩm</span>
                     <div className='filter-type'>
 
                         {
