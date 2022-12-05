@@ -17,7 +17,13 @@ class Admin
 	function perform_action($command)
 	{
 		$conn = $this->database->connect();
-		$conn->query($command);
+		$data = $conn->multi_query($command);
+
+		if (mysqli_affected_rows($conn) == -1) {
+			echo json_encode(["status" => "success"]);
+		}
+		echo json_encode(["status" => "success"]);
+
 		$conn->close();
 	}
 }
@@ -25,4 +31,5 @@ class Admin
 $ad = new Admin();
 $command = $_POST['command'];
 
-echo json_encode($ad->perform_action($command));
+
+$ad->perform_action($command);

@@ -11,7 +11,8 @@ const takeAction = async (command) => {
 	const data = { command: command };
 	const formData = objToFormData(data);
 
-	fetchData(urlAdmin, "", formData);
+	const res = fetchData(urlAdmin, "", formData);
+	return res;
 }
 
 export { takeAction }

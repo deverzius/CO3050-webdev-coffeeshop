@@ -22,7 +22,25 @@ export const CartPage = () => {
 
     const total = () => {
         let total = 0
+
         selectedDrinks.forEach(i => {
+            const tops = i.topping.split(",");
+            console.log(tops)
+            tops.map((item, idx) => {
+                if (item === 'Đào ngâm')
+                {
+                    total += 10000;
+                }
+                else if (item === 'Trân châu trắng')
+                {
+                    total += 15000;
+                }
+                else if (item === 'Foam Cheese')
+                {
+                    total += 20000;
+                }
+            })
+
             total += parseInt(i.price) * parseInt(i.drink_count);
         })
         return total

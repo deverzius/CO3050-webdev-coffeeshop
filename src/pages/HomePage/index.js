@@ -53,7 +53,7 @@ export const HomePage = () => {
                 <span><a href="/shop">Tea Holic</a></span>
 
                 {
-                    drinks.filter(item => item.type === 'tea').map((item, index) => (index <= 5) ? (
+                    drinks.filter(item => item.type === 'tea').map((item, index) => (index <= 3) ? (
                         <div key={index} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 center">
                             <Product product={item} />
                         </div>
@@ -64,7 +64,7 @@ export const HomePage = () => {
                 <span><a href="/shop">Coffee Holic</a></span>
 
                 {
-                    drinks.filter(item => item.type === 'coffee').map((item, index) => (index <= 5) ? (
+                    drinks.filter(item => item.type === 'coffee').map((item, index) => (index <= 3) ? (
                         <div key={index} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 center">
                             <Product product={item} />
                         </div>

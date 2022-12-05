@@ -155,5 +155,4 @@ if ($action == 'read_all') {
 	$email = $_POST['email'];
 
 	echo json_encode(($user->alter_user($username, $password, $name, $email, $address)));
-} else if ($action == 'update') {
 }

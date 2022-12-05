@@ -29,7 +29,7 @@ export const ProductGrid = (props) => {
                     </p>
                     {/* <p className="product-detail__line1">{props.product.brand}</p> */}
                     <p className="product-detail__line4">{props.product.description}</p>
-                    <Link className="btn btn-primary my-2" to={`/order/${props.product.index}`}>
+                    <Link className="btn btn-primary my-2" to={`/order/${props.product.drink_id}`}>
                         Mua ngay
                     </Link>
                 </div>

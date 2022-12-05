@@ -75,15 +75,15 @@ export const CustomerPage = () => {
         if (!pass || pass !== password)
         {
             alert("Sai mật khẩu!!")
-            setNewpass("")
-            setRenewpass("")
+            // setNewpass("")
+            // setRenewpass("")
             return;
         }
         if (newpass !== renewpass)
         {
             alert("Mật khẩu không khớp!!")
-            setNewpass("")
-            setRenewpass("")
+            // setNewpass("")
+            // setRenewpass("")
             return;
         }
         change()

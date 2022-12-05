@@ -4,6 +4,7 @@ import { getDrinks, getOrders } from "../../api"
 import { useEffect, useRef, useState } from "react"
 import { getAllUser } from '../../api/user';
 import { takeAction } from '../../api/admin';
+import { useNavigate } from 'react-router-dom';
 
 function AdminPage() {
 	const [drinks, setDrinks] = useState([]);
@@ -13,6 +14,7 @@ function AdminPage() {
 
 	const tableRef = useRef();
 	const tableRef2 = useRef();
+	const navi = useNavigate();
 
 	const [select, setSelect] = useState("drinks");
 	const [display, setDisplay] = useState([]);
@@ -92,11 +94,13 @@ function AdminPage() {
 
 	const AdminSelection = () => {
 		const res = []
+		let idx = 0;
 		for (const key in colList)
 		{
-			res.push(<button className='btn btn-success border-0 m-1' onClick={() => handleAdSelect(key)}>
+			res.push(<button key={idx} className='btn btn-success border-0 m-1' onClick={() => handleAdSelect(key)}>
 				{key}
 			</button>);
+			idx++;
 		}
 		return res;
 	}
@@ -115,7 +119,7 @@ function AdminPage() {
 			data[i] = row.cells[i].innerText;
 		}
 
-		console.log(data);
+		//console.log(data);
 
 		if (select === 'drinks')
 		{
@@ -152,21 +156,27 @@ function AdminPage() {
 		// {
 		// }
 
-		alert("Sửa thành công!");
-		takeAction(cmd).then(() => {
-			window.location.reload();
+		takeAction(cmd).then((data) => {
+			if (data.status === 'success')
+			{
+				alert("Sửa thành công!");
+				window.location.reload();
+			}
+
+		}).catch(e => {
+			alert("Đã có lỗi xảy ra!\nVui lòng kiểm tra lại dữ liệu!");
 		});
 	}
 	const handleDelete = (id) => {
 		const cmd = `delete from ${tabSqlNameList[select]} where ${colList[select][0]}=${id}`;
 		console.log(cmd)
-		alert("Xoá thành công!");
 		takeAction(cmd).then(() => {
+			alert("Xoá thành công!");
 			window.location.reload();
 		});
 	}
 
-	const handleAdd = () => {
+	const handleAdd = async () => {
 		const row = tableRef2.current.rows[1];
 		//console.log(tableRef.current.rows[rowId]);
 
@@ -179,7 +189,7 @@ function AdminPage() {
 			data[i] = row.cells[i].innerText;
 		}
 
-		console.log(data);
+		//console.log(data);
 
 		if (select === 'drinks')
 		{
@@ -187,6 +197,8 @@ function AdminPage() {
 			(name, price, description, type, image)
 			values
 			('${data[1]}',${data[2]},'${data[3]}','${data[4]}','${data[5]}')`;
+
+
 		}
 		else if (select === "news")
 		{
@@ -200,25 +212,45 @@ function AdminPage() {
 			cmd = `insert into user 
 			(username, password, name, address, role)
 			values
-			('${data[1]}','${data[2]}','${data[3]}','${data[4]}','cus')`;
+			('${data[1]}','${data[2]}','${data[3]}','${data[4]}','cus');\n`;
 
-			console.log(cmd)
-
+			const cmd1 = `insert into customer (cus_id) select user_id from user where username='${data[1]}'`
+			cmd += cmd1;
 		}
 		else if (select === "admins")
 		{
 			cmd = `insert into user 
 			(username, password, name, address, role)
 			values
-			('${data[1]}','${data[2]}','${data[3]}','${data[4]}','ad')`;
+			('${data[1]}','${data[2]}','${data[3]}','${data[4]}','ad');\n`;
 
-			console.log(cmd)
+			const cmd1 = `insert into admin (ad_id) select user_id from user where username='${data[1]}'`
+			cmd += cmd1;
 		}
 
-		alert("Thêm thành công!");
-		takeAction(cmd).then(() => {
-			window.location.reload();
-		});
+		takeAction(cmd)
+			.then((data) => {
+				if (data.status === 'success')
+				{
+					alert("Thêm thành công!");
+					window.location.reload();
+				}
+			})
+			.catch(e => {
+				console.log(e)
+				alert("Đã có lỗi xảy ra!\nVui lòng kiểm tra lại dữ liệu!");
+			});
+	}
+
+	const handleLogout = () => {
+		localStorage.removeItem('username');
+		localStorage.removeItem('password');
+		localStorage.removeItem('name');
+		localStorage.removeItem('point');
+		localStorage.removeItem('address');
+		localStorage.removeItem('role');
+		localStorage.removeItem('order_id');
+		navi('/');
 	}
 
 	const RenderAdd = () => {
@@ -272,14 +304,14 @@ function AdminPage() {
 								if (j === colList[select].length - 1)
 								{
 									return (
-										<td contentEditable
+										<td key={j} contentEditable
 											suppressContentEditableWarning
 											className='table-data'
 											style={{ wordBreak: 'break-all' }}>
 											{item[itm]}
 										</td>)
 								}
-								return (<td contentEditable
+								return (<td key={j} contentEditable
 									suppressContentEditableWarning
 									className='table-data'>
 									{item[itm]}
@@ -304,6 +336,11 @@ function AdminPage() {
 
 			{isSelect ? <RenderAdd /> : ""}
 
+			<br />
+			<button className='btn btn-danger border-0 m-1'
+				onClick={handleLogout}>
+				Đăng xuất
+			</button>
 		</div>
 	)
 }

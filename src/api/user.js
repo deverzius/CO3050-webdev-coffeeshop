@@ -61,7 +61,7 @@ async function alterUser(username, password, name, email, address) {
 }
 
 async function getUserByName() {
-	const username = localStorage.getItem('id');
+	const username = localStorage.getItem('username');
 	if (!username)
 	{
 		return;

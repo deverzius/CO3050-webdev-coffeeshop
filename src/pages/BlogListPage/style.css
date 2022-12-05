@@ -40,4 +40,9 @@
     .blg-img {
         height: 200px;
     }
+
+    .bloglist-container .row {
+        display: flex;
+        justify-content: center;
+    }
 }

@@ -210,6 +210,7 @@ CREATE TABLE `replies` (
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
+  UNIQUE (`username`),
   `password` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `address` varchar(100) NOT NULL,
