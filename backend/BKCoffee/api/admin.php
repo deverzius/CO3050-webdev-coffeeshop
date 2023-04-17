@@ -31,5 +31,4 @@ class Admin
 $ad = new Admin();
 $command = $_POST['command'];
 
-
 $ad->perform_action($command);
